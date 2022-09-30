@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "lichess-app",
-    "slug": "lichess-app",
+    "name": "chess-puzzles-app",
+    "slug": "chess-puzzles-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
