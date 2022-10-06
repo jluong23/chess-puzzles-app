@@ -3,8 +3,12 @@ import { StyleSheet, Text, View } from 'react-native';
 import { useCallback, useEffect, useState } from 'react';
 import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
+import Home from './screens/Home.js';
+import About from './screens/About.js';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import Puzzle from './screens/Puzzle.js';
 
-import Home from './screens/Home';
 
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
@@ -31,14 +35,19 @@ export default function App() {
     useEffect(() => {
       prepare();
     }, [])
-
+    
+  const Stack = createStackNavigator();
   if(appLoaded) {
-    return(
-      <Home/>
-    ) 
+    return (
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="About" component={About} />
+          <Stack.Screen name="Puzzle" component={Puzzle} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    );
   }else{
     return null;
   }
-
-
 }
